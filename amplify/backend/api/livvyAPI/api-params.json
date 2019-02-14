@@ -1,0 +1,54 @@
+{
+    "paths": [
+        {
+            "name": "/messages",
+            "lambdaFunction": "livvyMessages",
+            "privacy": {
+                "private": true,
+                "auth": "rw"
+            }
+        },
+        {
+            "name": "/users",
+            "lambdaFunction": "livvyUsers",
+            "privacy": {
+                "private": true,
+                "auth": "rw"
+            }
+        }
+    ],
+    "resourceName": "livvyAPI",
+    "apiName": "livvyAPI",
+    "functionArns": [
+        {
+            "lambdaFunction": "livvyMessages"
+        },
+        {
+            "lambdaFunction": "livvyUsers"
+        }
+    ],
+    "privacy": {
+        "auth": 2,
+        "unauth": 0,
+        "authRoleName": "livvy-20190212173120-authRole",
+        "unAuthRoleName": "livvy-20190212173120-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "livvyMessages",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        },
+        {
+            "category": "function",
+            "resourceName": "livvyUsers",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ]
+}
