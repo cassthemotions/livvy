@@ -12,7 +12,7 @@ class App extends Component {
 
 
   getUser = async () => {
-    const response = await API.get('livvyAPI', '/users/me');
+    const response = await API.get('livvyAPI', '/users');
     console.log(JSON.stringify(response, null, 2));
   }
 
@@ -22,27 +22,11 @@ class App extends Component {
     console.log(JSON.stringify(response, null, 2));
   }
 
-  putUser = async () => {
-
-    const body = {
-      firstName: "rawad",
-      lastName: "rifai",
-      email: "rawad.rifai@gmail.com"
-    };
-
-    let init = {
-      body: body
-    }
-    const response = await API.put('livvyAPI', '/users', init);
-    console.log(JSON.stringify(response, null, 2));
-  }
-
   updateUser = async () => {
 
     const body = {
-      ETH: "999",
-      BTC: "456",
-      XRP: "123"
+      firstName: "rawad",
+      lastName: "rifai"
     };
 
     let init = {
@@ -111,17 +95,16 @@ class App extends Component {
 
         <br></br>
         <h2>Users</h2>
-        <Button secondary onClick={this.putUser}>put user</Button>
         <Button secondary onClick={this.getUser}>get user</Button>
         <Button secondary onClick={this.getAllUsers}>get all users</Button>
-        <Button secondary sonClick={this.updateUser}>update user</Button>
+        <Button secondary onClick={this.updateUser}>update user</Button>
 
         <br></br>
         <h2>Messages</h2>
         <Button secondary onClick={this.putMessage}>put message</Button>
         <Button secondary onClick={this.getMessage}>get message</Button>
         <Button secondary onClick={this.getAllMessages}>get all messages</Button>
-        <Button secondary sonClick={this.updateMessage}>update message</Button>
+        <Button secondary onClick={this.updateMessage}>update message</Button>
 
       </div>
     );

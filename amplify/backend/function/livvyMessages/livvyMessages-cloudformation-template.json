@@ -68,7 +68,7 @@
 				"Timeout": "25",
 				"Code": {
 					"S3Bucket": "livvy-20190212173120-deployment",
-					"S3Key": "amplify-builds/livvyMessages-1550131534-latest-build.zip"
+					"S3Key": "amplify-builds/livvyMessages-1550802365-latest-build.zip"
 				}
 			}
 		},

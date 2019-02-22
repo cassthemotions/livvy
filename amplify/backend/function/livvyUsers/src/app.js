@@ -14,8 +14,6 @@ if (process.env.ENV && process.env.ENV !== "NONE") {
 }
 
 const partitionKeyName = "id";
-const partitionKeyType = "S";
-const hasSortKey = sortKeyName !== "";
 const path = "/users";
 const hashKeyPath = '/:' + partitionKeyName;
 
@@ -30,16 +28,6 @@ app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
   next()
 });
-
-// convert url string param to expected Type
-const convertUrlType = (param, type) => {
-  switch (type) {
-    case "N":
-      return Number.parseInt(param);
-    default:
-      return param;
-  }
-}
 
 /**
  * This function returns the cognito user id (sub id) from the request object.
@@ -103,7 +91,7 @@ app.get(path + hashKeyPath, function (req, res) {
  * HTTP Get method for get single object *
  *****************************************/
 
-app.get(path + "/me", function (req, res) {
+app.get(path, function (req, res) {
 
   let userId;
   try {
@@ -122,37 +110,12 @@ app.get(path + "/me", function (req, res) {
     if (err) {
       res.json({ error: 'Could not load items: ' + err.message });
     } else {
+
       if (data.Item) {
         res.json(data.Item);
       } else {
         res.json(data);
       }
-    }
-  });
-});
-
-
-/************************************
-* HTTP put method for insert object *
-*************************************/
-
-app.put(path, function (req, res) {
-
-  const userId = uuidv1();
-
-  const item = req.body;
-  item[partitionKeyName] = userId;
-
-  let putItemParams = {
-    TableName: tableName,
-    Item: item
-  }
-
-  dynamodb.put(putItemParams, (err, data) => {
-    if (err) {
-      res.json({ error: err, url: req.url, body: req.body });
-    } else {
-      res.json({ success: 'put call succeed!', userId: userId, data: data })
     }
   });
 });
@@ -174,7 +137,7 @@ app.post(path, function (req, res) {
   var updateExpression = "set ";
   var expressionAttributeValues = {}
 
-  const items = {};
+  const items = req.body;
   items["updated"] = new Date().getTime();
 
   for (var key in items) {
