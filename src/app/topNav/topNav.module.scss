@@ -1,0 +1,51 @@
+.container {
+  background: #FCD202;
+  height: 75px;
+  padding: 30px 0;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 1px 1px #e2e2e2;
+}
+
+.menu {
+  color: #a2a3aa;
+  margin-left: 30px !important;
+  transition: 0.1s ease-in-out;
+
+  &:hover {
+    color: #fff;
+    cursor: pointer;
+  }
+}
+
+.accountContainer {
+  display: flex;
+  align-items: center;
+  margin: 0 30px 0 auto;
+}
+
+.userDropdown > div {
+  min-width: 140px !important;
+}
+
+.avatar {
+  color: #fff;
+  background: rgba(0,0,0,.2);
+  padding: 5px 15px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  &:hover {
+    background: rgba(0,0,0,.3);
+  }
+
+  img,
+  i {
+    margin-right: 10px !important;
+  }
+
+  i {
+    background-color: #42475a !important;
+    color: #787c88 !important;
+  }
+}

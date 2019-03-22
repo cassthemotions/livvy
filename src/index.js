@@ -1,13 +1,33 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Route, Switch, Redirect } from 'react-router';
+import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-contextual';
+
 import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
-import 'semantic-ui-css/semantic.min.css';
+import App from './app';
+import Messenger from './messenger';
+import Marketplace from './marketplace';
+import Events from './events';
+import Maintenance from './maintenance';
+import Security from './security';
+import store from './_shared/store';
 
-ReactDOM.render(<App />, document.getElementById('root'));
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.unregister();
+ReactDOM.render(
+  <Provider {...store}>
+    <BrowserRouter>
+      <App>
+        <Switch>
+          <Redirect exact path="/" to="/messenger" />
+          <Route path="/messenger" component={Messenger} />
+          <Route path="/marketplace" component={Marketplace} />
+          <Route path="/events" component={Events} />
+          <Route path="/maintenance" component={Maintenance} />
+          <Route path="/security" component={Security} />
+        </Switch>
+      </App>
+    </BrowserRouter>
+  </Provider>,
+  document.getElementById('root')
+);

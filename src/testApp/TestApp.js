@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Amplify, { API } from 'aws-amplify';
-import awsmobile from './aws-exports';
-import { withAuthenticator } from 'aws-amplify-react';
+
+import './TestApp.css';
+import { API } from 'aws-amplify';
+
 import { Button } from 'semantic-ui-react'
 
-Amplify.configure(awsmobile);
-
-class App extends Component {
+class TestApp extends Component {
 
 
   getUser = async () => {
@@ -111,4 +108,4 @@ class App extends Component {
   }
 }
 
-export default withAuthenticator(App, true);
+export default (TestApp);
