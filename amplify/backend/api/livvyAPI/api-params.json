@@ -15,6 +15,22 @@
                 "private": true,
                 "auth": "rw"
             }
+        },
+        {
+            "name": "/events",
+            "lambdaFunction": "livvyEvents",
+            "privacy": {
+                "private": true,
+                "auth": "rw"
+            }
+        },
+        {
+            "name": "/livvyMarketplace",
+            "lambdaFunction": "livvyMarketplace",
+            "privacy": {
+                "private": true,
+                "auth": "rw"
+            }
         }
     ],
     "resourceName": "livvyAPI",
@@ -25,10 +41,16 @@
         },
         {
             "lambdaFunction": "livvyUsers"
+        },
+        {
+            "lambdaFunction": "livvyEvents"
+        },
+        {
+            "lambdaFunction": "livvyMarketplace"
         }
     ],
     "privacy": {
-        "auth": 2,
+        "auth": 4,
         "unauth": 0,
         "authRoleName": "livvy-20190212173120-authRole",
         "unAuthRoleName": "livvy-20190212173120-unauthRole"
@@ -49,6 +71,23 @@
                 "Name",
                 "Arn"
             ]
+        },
+        {
+            "category": "function",
+            "resourceName": "livvyEvents",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        },
+        {
+            "category": "function",
+            "resourceName": "livvyMarketplace",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
         }
-    ]
+    ],
+    "uuid": "580208db"
 }

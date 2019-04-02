@@ -1,0 +1,214 @@
+{
+    "providers": {
+        "awscloudformation": {
+            "AuthRoleName": "livvy-20190212173120-authRole",
+            "UnauthRoleArn": "arn:aws:iam::878435980219:role/livvy-20190212173120-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::878435980219:role/livvy-20190212173120-authRole",
+            "Region": "us-west-2",
+            "DeploymentBucketName": "livvy-20190212173120-deployment",
+            "UnauthRoleName": "livvy-20190212173120-unauthRole",
+            "StackName": "livvy-20190212173120",
+            "StackId": "arn:aws:cloudformation:us-west-2:878435980219:stack/livvy-20190212173120/11e501a0-2f2f-11e9-a66d-0ae06257a2d8"
+        },
+        "categories": {
+            "auth": {
+                "cognito283d3c37": {}
+            }
+        }
+    },
+    "auth": {
+        "cognito283d3c37": {
+            "service": "Cognito",
+            "providerPlugin": "awscloudformation",
+            "output": {
+                "AppClientSecret": "1vqrh5r2pstlm42apmpn9uj7bcfaqvvhbvmnenlohu5l52sc7k23",
+                "UserPoolId": "us-west-2_iYL0ZqGSp",
+                "AppClientIDWeb": "3btubva6d5mlp778109nuditfu",
+                "AppClientID": "51el58va152n40smaa84euj2le",
+                "IdentityPoolId": "us-west-2:88c56278-e1f7-4509-b91e-4497188a1b8e",
+                "IdentityPoolName": "cognito283d3c37_identitypool_283d3c37__dev",
+                "UserPoolName": "cognito283d3c37_userpool_283d3c37"
+            },
+            "lastPushTimeStamp": "2019-03-08T03:37:24.049Z",
+            "providerMetadata": {
+                "s3TemplateURL": "https://s3.amazonaws.com/livvy-20190212173120-deployment/amplify-cfn-templates/auth/cognito283d3c37-cloudformation-template.yml",
+                "logicalId": "authcognito283d3c37"
+            }
+        }
+    },
+    "storage": {
+        "livvyMessages": {
+            "service": "DynamoDB",
+            "providerPlugin": "awscloudformation",
+            "output": {
+                "PartitionKeyName": "id",
+                "SortKeyName": "timestamp",
+                "SortKeyType": "N",
+                "Region": "us-west-2",
+                "Arn": "arn:aws:dynamodb:us-west-2:878435980219:table/livvyMessages-dev",
+                "PartitionKeyType": "S",
+                "Name": "livvyMessages-dev"
+            },
+            "lastPushTimeStamp": "2019-03-08T03:37:24.050Z",
+            "providerMetadata": {
+                "s3TemplateURL": "https://s3.amazonaws.com/livvy-20190212173120-deployment/amplify-cfn-templates/storage/livvyMessages-cloudformation-template.json",
+                "logicalId": "storagelivvyMessages"
+            }
+        },
+        "livvyUsers": {
+            "service": "DynamoDB",
+            "providerPlugin": "awscloudformation",
+            "output": {
+                "PartitionKeyName": "id",
+                "Region": "us-west-2",
+                "Arn": "arn:aws:dynamodb:us-west-2:878435980219:table/livvyUsers-dev",
+                "PartitionKeyType": "S",
+                "Name": "livvyUsers-dev"
+            },
+            "lastPushTimeStamp": "2019-03-08T03:37:24.050Z",
+            "providerMetadata": {
+                "s3TemplateURL": "https://s3.amazonaws.com/livvy-20190212173120-deployment/amplify-cfn-templates/storage/livvyUsers-cloudformation-template.json",
+                "logicalId": "storagelivvyUsers"
+            }
+        },
+        "livvyEvents": {
+            "service": "DynamoDB",
+            "providerPlugin": "awscloudformation"
+        },
+        "livvyMarketplace": {
+            "service": "DynamoDB",
+            "providerPlugin": "awscloudformation"
+        }
+    },
+    "function": {
+        "livvyMessages": {
+            "service": "Lambda",
+            "providerPlugin": "awscloudformation",
+            "build": true,
+            "dependsOn": [
+                {
+                    "category": "storage",
+                    "resourceName": "livvyMessages",
+                    "attributes": [
+                        "Name",
+                        "Arn"
+                    ]
+                }
+            ],
+            "output": {
+                "Region": "us-west-2",
+                "Arn": "arn:aws:lambda:us-west-2:878435980219:function:livvyMessages-dev",
+                "Name": "livvyMessages-dev"
+            },
+            "lastPushTimeStamp": "2019-03-08T03:37:24.051Z",
+            "providerMetadata": {
+                "s3TemplateURL": "https://s3.amazonaws.com/livvy-20190212173120-deployment/amplify-cfn-templates/function/livvyMessages-cloudformation-template.json",
+                "logicalId": "functionlivvyMessages"
+            }
+        },
+        "livvyUsers": {
+            "service": "Lambda",
+            "providerPlugin": "awscloudformation",
+            "build": true,
+            "dependsOn": [
+                {
+                    "category": "storage",
+                    "resourceName": "livvyUsers",
+                    "attributes": [
+                        "Name",
+                        "Arn"
+                    ]
+                }
+            ],
+            "output": {
+                "Region": "us-west-2",
+                "Arn": "arn:aws:lambda:us-west-2:878435980219:function:livvyUsers-dev",
+                "Name": "livvyUsers-dev"
+            },
+            "lastPushTimeStamp": "2019-03-08T03:37:24.051Z",
+            "providerMetadata": {
+                "s3TemplateURL": "https://s3.amazonaws.com/livvy-20190212173120-deployment/amplify-cfn-templates/function/livvyUsers-cloudformation-template.json",
+                "logicalId": "functionlivvyUsers"
+            }
+        },
+        "livvyEvents": {
+            "service": "Lambda",
+            "providerPlugin": "awscloudformation",
+            "build": true,
+            "dependsOn": [
+                {
+                    "category": "storage",
+                    "resourceName": "livvyEvents",
+                    "attributes": [
+                        "Name",
+                        "Arn"
+                    ]
+                }
+            ]
+        },
+        "livvyMarketplace": {
+            "service": "Lambda",
+            "providerPlugin": "awscloudformation",
+            "build": true,
+            "dependsOn": [
+                {
+                    "category": "storage",
+                    "resourceName": "livvyMarketplace",
+                    "attributes": [
+                        "Name",
+                        "Arn"
+                    ]
+                }
+            ]
+        }
+    },
+    "api": {
+        "livvyAPI": {
+            "service": "API Gateway",
+            "providerPlugin": "awscloudformation",
+            "dependsOn": [
+                {
+                    "category": "function",
+                    "resourceName": "livvyMessages",
+                    "attributes": [
+                        "Name",
+                        "Arn"
+                    ]
+                },
+                {
+                    "category": "function",
+                    "resourceName": "livvyUsers",
+                    "attributes": [
+                        "Name",
+                        "Arn"
+                    ]
+                },
+                {
+                    "category": "function",
+                    "resourceName": "livvyEvents",
+                    "attributes": [
+                        "Name",
+                        "Arn"
+                    ]
+                },
+                {
+                    "category": "function",
+                    "resourceName": "livvyMarketplace",
+                    "attributes": [
+                        "Name",
+                        "Arn"
+                    ]
+                }
+            ],
+            "output": {
+                "ApiName": "livvyAPI",
+                "RootUrl": "https://jofpgds5a6.execute-api.us-west-2.amazonaws.com/dev"
+            },
+            "lastPushTimeStamp": "2019-03-26T20:45:17.520Z",
+            "providerMetadata": {
+                "s3TemplateURL": "https://s3.amazonaws.com/livvy-20190212173120-deployment/amplify-cfn-templates/api/livvyAPI-cloudformation-template.json",
+                "logicalId": "apilivvyAPI"
+            }
+        }
+    }
+}
