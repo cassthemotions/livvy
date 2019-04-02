@@ -1,0 +1,65 @@
+/**
+ * Outputs a media-query block.
+ *
+ * $query
+ * @param {List}
+ * A list of media query features and values, where each `$feature` should have a
+ * corresponding `$value`. For a list of valid values for `$feature`, visit
+ * [here](http://www.w3.org/TR/css3-mediaqueries/#media1).
+ *
+ * $feature
+ * @type String
+ * Sets the default [media feature](http://www.w3.org/TR/css3-mediaqueries/#media)
+ * that `media()` reverts to when only a breakpoint value is passed. The $default-feature
+ * defaults to `min-width`.
+ *
+ * $value
+ * @type Number
+ * The value to be used for the breakpoint. If there is only a single `$value`
+ * in `$query`, `$default-feature` will be used.
+ *
+ */
+
+$default-feature: min-width;
+
+// Breakpoint values
+$xs: 320px;
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+
+@mixin media($query: $feature $value) {
+  @if length($query) == 1 {
+    @media screen and ($default-feature: nth($query, 1)) {
+      @content;
+    }
+  } @else {
+    $loop-to: length($query);
+    $media-query: "screen and ";
+
+    @if is-not(is-even(length($query))) {
+      $loop-to: $loop-to - 1;
+    }
+
+    $i: 1;
+    @while $i <= $loop-to {
+      $media-query: $media-query +
+        "(" +
+        nth($query, $i) +
+        ": " +
+        nth($query, $i + 1) +
+        ") ";
+
+      @if ($i + 1) != $loop-to {
+        $media-query: $media-query + "and ";
+      }
+
+      $i: $i + 2;
+    }
+
+    @media #{$media-query} {
+      @content;
+    }
+  }
+}
