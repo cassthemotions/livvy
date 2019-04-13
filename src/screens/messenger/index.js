@@ -14,7 +14,7 @@ const Messenger = props => {
 
   return (
     <div className={styles.container}>
-      messenger
+      screens/messenger
     </div>
   );
 }

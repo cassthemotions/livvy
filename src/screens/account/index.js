@@ -5,18 +5,18 @@
  */
 
 import React from 'react';
-import styles from './security.module.scss';
+import styles from './account.module.scss';
 import { subscribe } from 'react-contextual';
 
 
-const Security = props => {
+const Account = props => {
 
 
   return (
     <div className={styles.container}>
-      security
+      screens/account
     </div>
   );
 }
 
-export default subscribe()(Security);
+export default subscribe()(Account);
