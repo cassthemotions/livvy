@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './styles.js';
 import { subscribe } from 'react-contextual';
+import Subnav from './components/subnav/subnav.js';
 
 const Marketplace = props => {
     return (
@@ -16,16 +17,7 @@ const Marketplace = props => {
                     className="sidebar"
                     style={styles.sidebar}
                 >
-                    <ul>
-                        <li>All Marketplace</li>
-                        <li>Home & Garden</li>
-                        <li>Housing</li>
-                        <li>Entertainment</li>
-                        <li>Clothing</li>
-                        <li>Family</li>
-                        <li>Electronics</li>
-                        <li>Hobies</li>
-                    </ul>
+                    <Subnav />
                 </div>
                 <div
                     className="content"
