@@ -5,18 +5,18 @@
  */
 
 import React from 'react';
-import styles from './maintenance.module.scss';
+import styles from './marketplace.module.scss';
 import { subscribe } from 'react-contextual';
 
 
-const Maintenance = props => {
+const Marketplace = props => {
 
 
   return (
     <div className={styles.container}>
-      maintenace
+      screens/marketplace
     </div>
   );
 }
 
-export default subscribe()(Maintenance);
+export default subscribe()(Marketplace);

@@ -6,13 +6,14 @@ import { Provider } from 'react-contextual';
 
 import './index.css';
 import App from './app';
-import Messenger from './messenger';
-import Marketplace from './marketplace';
-import Events from './events';
-import Maintenance from './maintenance';
-import Security from './security';
-import store from './_shared/store';
 
+import Messenger from './screens/messenger';
+import Marketplace from './screens/marketplace';
+import Events from './screens/events';
+import Maintenance from './screens/maintenance';
+import Security from './screens/security';
+
+import store from './_shared/store';
 
 ReactDOM.render(
   <Provider {...store}>
