@@ -1,39 +1,29 @@
 import React from "react";
 import styles from "./styles";
 import { subscribe } from "react-contextual";
+import ContentSideBar from "../../ui/layouts/ContentSidebar/ContentSideBar"
 import Subnav from "./components/Subnav/Subnav";
 import Post from "./components/Post/Post";
 
+const subheader = () => {
+    return (
+        <h1>Marketplace</h1>
+    );
+}
+
+const sidebar = <Subnav />;
+const content = <Post />;
+const subfooter = "This is my subfooter";
+
 const Marketplace = props => {
     return (
-        <div style={styles.container}>
-            <div
-                className="subheader"
-                style={styles.subheader}
-            >
-                <h1>Marketplace</h1>
-            </div>
-            <div style={styles.layout}>
-                <div
-                    className="sidebar"
-                    style={styles.sidebar}
-                >
-                    <Subnav />
-                </div>
-                <div
-                    className="content"
-                    style={styles.content}
-                >
-                    <Post />
-                </div>
-            </div>
-            <div
-                className="subfooter"
-                style={styles.subfooter}
-            >
-                Subfooter
-            </div>
-        </div>
+        <ContentSideBar
+           styles={styles}
+           subheader={subheader()}
+           sidebar={sidebar}
+            content={content}
+           subfooter={subfooter}
+        />
     );
 }
 
