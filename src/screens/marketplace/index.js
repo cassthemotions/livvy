@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./styles";
 import { subscribe } from "react-contextual";
-import Subnav from "./components/subnav/subnav";
+import Subnav from "./components/Subnav/Subnav";
 import Post from "./components/Post/Post";
 
 const Marketplace = props => {
