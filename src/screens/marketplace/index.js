@@ -1,7 +1,8 @@
-import React from 'react';
-import styles from './styles.js';
-import { subscribe } from 'react-contextual';
-import Subnav from './components/subnav/subnav.js';
+import React from "react";
+import styles from "./styles";
+import { subscribe } from "react-contextual";
+import Subnav from "./components/subnav/subnav";
+import Post from "./components/Post/Post";
 
 const Marketplace = props => {
     return (
@@ -23,14 +24,7 @@ const Marketplace = props => {
                     className="content"
                     style={styles.content}
                 >
-                    <ul>
-                        <li>Post</li>
-                        <li>Post</li>
-                        <li>Post</li>
-                        <li>Post</li>
-                        <li>Post</li>
-                        <li>Post</li>
-                    </ul>
+                    <Post />
                 </div>
             </div>
             <div
