@@ -1,5 +1,5 @@
 import React from 'react';
-import Subnav from '../../../../ui/components/subnav/subnav.js';
+import Subnav from '../../../../ui/components/Subnav/Subnav.js';
 
 const links = [
     {
