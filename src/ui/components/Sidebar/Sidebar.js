@@ -8,7 +8,7 @@ import { NavLink, Link } from 'react-router-dom';
 import { Icon } from 'semantic-ui-react';
 import classNames from 'classnames';
 import { subscribe } from 'react-contextual';
-
+import Copyright from '../Copyright/Copyright';
 import logo from './logo.png';
 import styles from './sideNav.module.scss';
 
@@ -84,18 +84,7 @@ const SideNav = props => {
         {renderNavItems()}
       </div>
 
-      {props.sideNavOpen && (
-        <div className={styles.copyright}>
-          <a href="https://www.livvy.io/privacy" target="_blank" rel="noopener noreferrer">
-            Privacy
-          </a>
-          <div>
-            <a href="https://www.livvy.io" target="_blank" rel="noopener noreferrer">
-              Powered by Livvy
-            </a>
-          </div>
-        </div>
-      )}
+      {props.sideNavOpen && <Copyright />}
     </div>
   );
 }

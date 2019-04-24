@@ -1,16 +1,10 @@
-/**
- * This component is the main layout file which wraps the entire
- * application. You can call things here if you want them to load
- * when the application first loads.
- */
-
 import React from 'react';
 import { subscribe } from 'react-contextual';
 
 import 'semantic-ui-css/semantic.css';
 
 import TopNav from './topNav';
-import SideNav from './sideNav';
+import SideNav from '../ui/components/Sidebar/Sidebar';
 import styles from './app.module.scss';
 
 import Amplify from 'aws-amplify';
