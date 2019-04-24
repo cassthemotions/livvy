@@ -2,7 +2,7 @@ import base from "../light/styles";
 import deepmerge from "deepmerge";
 
 const styles = {
-    primaryFontColor: "#3333ff",
+    primaryFontColor: "#a2a3aa",
     primaryBackgroundColor: "#FCD102",
 }
 
