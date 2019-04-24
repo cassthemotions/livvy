@@ -1,7 +1,6 @@
 import theme from "../../themes/loader";
 const styles = {
     container: {
-        background: theme.primaryBackgroundColor
     },
     subheader:{
     },
