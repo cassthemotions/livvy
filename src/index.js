@@ -4,7 +4,6 @@ import { Route, Switch, Redirect } from 'react-router';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-contextual';
 
-import './index.css';
 import App from './app';
 
 import Messenger from './screens/messenger';
