@@ -1,5 +1,5 @@
 const config = {
-    theme: "dark",
+    theme: "livvy",
 }
 
 export default config;
