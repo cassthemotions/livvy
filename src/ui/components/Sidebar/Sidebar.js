@@ -1,90 +1,17 @@
-/**
- * This component is used to display a side navigation for the
- * application's UI.
- */
-
 import React from 'react';
-import { NavLink, Link } from 'react-router-dom';
-import { Icon } from 'semantic-ui-react';
-import classNames from 'classnames';
 import { subscribe } from 'react-contextual';
+import Navigation from "../Navigation/Navigation";
 import Copyright from '../Copyright/Copyright';
-import logo from './logo.png';
-import styles from './sideNav.module.scss';
+import Logo from '../Logo/Logo';
 
-const navItems = [
-  {
-    name: 'Messenger',
-    icon: 'messenger',
-    path: '/messenger/'
-  },
-  {
-    name: 'Marketplace',
-    icon: 'marketplace',
-    path: '/marketplace'
-  },
-  {
-    name: 'Events',
-    icon: 'events',
-    path: '/events'
-  },
-  {
-    name: 'Maintenace',
-    icon: 'maintenance',
-    path: '/maintenance'
-  },
-  {
-    name: 'Security',
-    icon: 'security',
-    path: '/security'
-  }
-];
+import styles from './styles';
 
 const SideNav = props => {
-
-  /**
-   * Renders a set of nav items as nav links
-   * using the specified array of navItems.
-   */
-  function renderNavItems() {
-    return navItems.map((item, i) => (
-      <NavLink
-        exact
-        activeClassName={styles.activeNavItem}
-        to={item.path}
-        key={i}
-      >
-        <Icon
-          name={item.icon}
-          size={!props.sideNavOpen ? 'large' : null}
-          className={item.indent ? styles.indentedIcon : null}
-        />
-        <span className={styles.linkName}>{item.name}</span>
-      </NavLink>
-    ));
-  }
-
-
-
-  const sideNavStyle = classNames(styles.container, {
-    [styles.collapsed]: !props.sideNavOpen
-  });
-
-  console.log(sideNavStyle)
-
   return (
-    <div className={sideNavStyle}>
-      <Link to="/" className={styles.logo}>
-        <div className={styles.logoWrapper}>
-          <img src={logo} alt="Livvy Logo" />
-        </div>
-      </Link>
-
-      <div className={styles.navLinks}>
-        {renderNavItems()}
-      </div>
-
-      {props.sideNavOpen && <Copyright />}
+    <div style={styles.container}>
+        <Logo />
+        <Navigation />
+        <Copyright />
     </div>
   );
 }
