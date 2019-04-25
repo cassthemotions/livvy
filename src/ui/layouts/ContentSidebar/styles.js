@@ -1,4 +1,3 @@
-import theme from "../../themes/loader";
 const styles = {
     container: {
     },
