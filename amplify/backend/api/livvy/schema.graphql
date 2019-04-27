@@ -1,0 +1,54 @@
+type User @model @auth(rules: [
+  { allow: owner, ownerField: "id" }
+  ]) {
+  id: String! @auth(rules:[ { allow: owner, groups: ["everyone"], operations: [read] }])
+  firstName: String
+  lastName: String
+  dobMonth: String
+  dobDay: Int
+  dobYear: Int
+  address1: String
+  address2: String
+  country: String
+  region: String
+  city: String
+  postalCode: String
+  email: String
+  user_conversations: [User_Conversation] @connection(name: "UserConversations")
+}
+
+
+
+type User_Conversation @model @auth(rules: [
+  { allow: owner },
+  { allow: owner, groups: ["everyone"], operations: [read] }
+]) {
+  id: ID!
+  user: User @connection(name: "UserConversations")
+  conversation: Conversation @connection(name: "ConversationUsers")
+}
+
+
+
+
+type Conversation @model @auth(rules: [
+  { allow: owner },
+  { allow: owner, groups: ["everyone"], operations: [read] }
+]) {
+  id: ID!
+  conversation_users: [User_Conversation] @connection(name: "ConversationUsers")
+  archived: String
+  messages: [Message] @connection(name: "ConversationMessages")
+}
+
+
+type Message @model @auth(rules: [
+  { allow: owner },
+  { allow: owner, ownerField: "users", operations: [read] }
+]) {
+  id: ID!
+  users: [String]!
+  archived: String
+  conversation: Conversation @connection(name: "ConversationMessages")
+}
+

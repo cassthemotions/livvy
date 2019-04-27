@@ -1,0 +1,10 @@
+{
+    "AppSyncApiName": "livvy",
+    "DynamoDBBillingMode": "PAY_PER_REQUEST",
+    "AuthCognitoUserPoolId": {
+        "Fn::GetAtt": [
+            "authcognitoad13bed4",
+            "Outputs.UserPoolId"
+        ]
+    }
+}

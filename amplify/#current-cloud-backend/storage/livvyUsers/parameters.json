@@ -1,5 +1,0 @@
-{
-    "tableName": "livvyUsers",
-    "partitionKeyName": "id",
-    "partitionKeyType": "S"
-}

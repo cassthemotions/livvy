@@ -78,26 +78,25 @@
 				}
 			}
 		},
-		"authcognito283d3c37": {
+		"authcognitoad13bed4": {
 			"Type": "AWS::CloudFormation::Stack",
 			"Properties": {
-				"TemplateURL": "https://s3.amazonaws.com/livvy-20190212173120-deployment/amplify-cfn-templates/auth/cognito283d3c37-cloudformation-template.yml",
+				"TemplateURL": "https://s3.amazonaws.com/livvy-20190427150112-deployment/amplify-cfn-templates/auth/cognitoad13bed4-cloudformation-template.yml",
 				"Parameters": {
-					"identityPoolName": "cognito283d3c37_identitypool_283d3c37",
+					"identityPoolName": "cognitoad13bed4_identitypool_ad13bed4",
 					"allowUnauthenticatedIdentities": false,
-					"thirdPartyAuth": false,
-					"lambdaLogPolicy": "cognito283d3c37_lambda_log_policy",
-					"openIdLambdaRoleName": "cognito283d3c37_openid_lambda_role",
-					"openIdRolePolicy": "cognito283d3c37_openid_pass_role_policy",
-					"openIdLambdaIAMPolicy": "cognito283d3c37_openid_lambda_iam_policy",
-					"openIdLogPolicy": "cognito283d3c37_openid_lambda_log_policy",
-					"userPoolName": "cognito283d3c37_userpool_283d3c37",
+					"lambdaLogPolicy": "cognitoad13bed4_lambda_log_policy",
+					"openIdLambdaRoleName": "cognitoad13bed4_openid_lambda_role",
+					"openIdRolePolicy": "cognitoad13bed4_openid_pass_role_policy",
+					"openIdLambdaIAMPolicy": "cognitoad13bed4_openid_lambda_iam_policy",
+					"openIdLogPolicy": "cognitoad13bed4_openid_lambda_log_policy",
+					"userPoolName": "cognitoad13bed4_userpool_ad13bed4",
 					"autoVerifiedAttributes": "email",
 					"mfaConfiguration": "OFF",
 					"mfaTypes": "SMS Text Message",
-					"roleName": "cognito283d3c37_sns-role",
-					"roleExternalId": "cognito283d3c37_role_external_id",
-					"policyName": "cognito283d3c37-sns-policy",
+					"roleName": "cognitoad13bed4_sns-role",
+					"roleExternalId": "cognitoad13bed4_role_external_id",
+					"policyName": "cognitoad13bed4-sns-policy",
 					"smsAuthenticationMessage": "Your authentication code is {####}",
 					"smsVerificationMessage": "Your verification code is {####}",
 					"emailVerificationSubject": "Your verification code",
@@ -106,20 +105,20 @@
 					"passwordPolicyMinLength": 8,
 					"passwordPolicyCharacters": "Requires Lowercase,Requires Uppercase,Requires Numbers,Requires Symbols",
 					"requiredAttributes": "email",
-					"userpoolClientName": "cognito283d3c37_app_client",
+					"userpoolClientName": "cognitoad13bed4_app_client",
 					"userpoolClientGenerateSecret": true,
 					"userpoolClientRefreshTokenValidity": 30,
+					"userpoolClientWriteAttributes": "email",
 					"userpoolClientReadAttributes": "email",
-					"mfaLambdaRole": "cognito283d3c37_totp_lambda_role",
-					"mfaLambdaLogPolicy": "cognito283d3c37_totp_lambda_log_policy",
-					"mfaPassRolePolicy": "cognito283d3c37_totp_pass_role_policy",
-					"mfaLambdaIAMPolicy": "cognito283d3c37_totp_lambda_iam_policy",
-					"userpoolClientLambdaRole": "cognito283d3c37_userpoolclient_lambda_role",
-					"userpoolClientLogPolicy": "cognito283d3c37_userpoolclient_lambda_log_policy",
-					"userpoolClientLambdaPolicy": "cognito283d3c37_userpoolclient_lambda_iam_policy",
+					"mfaLambdaRole": "cognitoad13bed4_totp_lambda_role",
+					"mfaLambdaLogPolicy": "cognitoad13bed4_totp_lambda_log_policy",
+					"mfaPassRolePolicy": "cognitoad13bed4_totp_pass_role_policy",
+					"mfaLambdaIAMPolicy": "cognitoad13bed4_totp_lambda_iam_policy",
+					"userpoolClientLambdaRole": "cognitoad13bed4_userpoolclient_lambda_role",
+					"userpoolClientLogPolicy": "cognitoad13bed4_userpoolclient_lambda_log_policy",
+					"userpoolClientLambdaPolicy": "cognitoad13bed4_userpoolclient_lambda_iam_policy",
 					"userpoolClientSetAttributes": false,
-					"useDefault": "default",
-					"resourceName": "cognito283d3c37",
+					"resourceName": "cognitoad13bed4",
 					"authSelections": "identityPoolAndUserPool",
 					"authRoleName": {
 						"Ref": "AuthRoleName"
@@ -139,113 +138,26 @@
 							"Arn"
 						]
 					},
+					"useDefault": "default",
 					"env": "dev"
 				}
 			}
 		},
-		"storagelivvyMessages": {
+		"apilivvy": {
 			"Type": "AWS::CloudFormation::Stack",
 			"Properties": {
-				"TemplateURL": "https://s3.amazonaws.com/livvy-20190212173120-deployment/amplify-cfn-templates/storage/livvyMessages-cloudformation-template.json",
+				"TemplateURL": "https://s3.amazonaws.com/livvy-20190427150112-deployment/amplify-cfn-templates/api/cloudformation-template.json",
 				"Parameters": {
-					"tableName": "livvyMessages",
-					"partitionKeyName": "id",
-					"partitionKeyType": "S",
-					"sortKeyName": "timestamp",
-					"sortKeyType": "N",
-					"env": "dev"
-				}
-			}
-		},
-		"storagelivvyUsers": {
-			"Type": "AWS::CloudFormation::Stack",
-			"Properties": {
-				"TemplateURL": "https://s3.amazonaws.com/livvy-20190212173120-deployment/amplify-cfn-templates/storage/livvyUsers-cloudformation-template.json",
-				"Parameters": {
-					"tableName": "livvyUsers",
-					"partitionKeyName": "id",
-					"partitionKeyType": "S",
-					"env": "dev"
-				}
-			}
-		},
-		"functionlivvyMessages": {
-			"Type": "AWS::CloudFormation::Stack",
-			"Properties": {
-				"TemplateURL": "https://s3.amazonaws.com/livvy-20190212173120-deployment/amplify-cfn-templates/function/livvyMessages-cloudformation-template.json",
-				"Parameters": {
-					"storagelivvyMessagesName": {
+					"AppSyncApiName": "livvy",
+					"DynamoDBBillingMode": "PAY_PER_REQUEST",
+					"AuthCognitoUserPoolId": {
 						"Fn::GetAtt": [
-							"storagelivvyMessages",
-							"Outputs.Name"
+							"authcognitoad13bed4",
+							"Outputs.UserPoolId"
 						]
 					},
-					"storagelivvyMessagesArn": {
-						"Fn::GetAtt": [
-							"storagelivvyMessages",
-							"Outputs.Arn"
-						]
-					},
-					"env": "dev"
-				}
-			}
-		},
-		"functionlivvyUsers": {
-			"Type": "AWS::CloudFormation::Stack",
-			"Properties": {
-				"TemplateURL": "https://s3.amazonaws.com/livvy-20190212173120-deployment/amplify-cfn-templates/function/livvyUsers-cloudformation-template.json",
-				"Parameters": {
-					"storagelivvyUsersName": {
-						"Fn::GetAtt": [
-							"storagelivvyUsers",
-							"Outputs.Name"
-						]
-					},
-					"storagelivvyUsersArn": {
-						"Fn::GetAtt": [
-							"storagelivvyUsers",
-							"Outputs.Arn"
-						]
-					},
-					"env": "dev"
-				}
-			}
-		},
-		"apilivvyAPI": {
-			"Type": "AWS::CloudFormation::Stack",
-			"Properties": {
-				"TemplateURL": "https://s3.amazonaws.com/livvy-20190212173120-deployment/amplify-cfn-templates/api/livvyAPI-cloudformation-template.json",
-				"Parameters": {
-					"authRoleName": {
-						"Ref": "AuthRoleName"
-					},
-					"unauthRoleName": {
-						"Ref": "UnauthRoleName"
-					},
-					"functionlivvyMessagesName": {
-						"Fn::GetAtt": [
-							"functionlivvyMessages",
-							"Outputs.Name"
-						]
-					},
-					"functionlivvyMessagesArn": {
-						"Fn::GetAtt": [
-							"functionlivvyMessages",
-							"Outputs.Arn"
-						]
-					},
-					"functionlivvyUsersName": {
-						"Fn::GetAtt": [
-							"functionlivvyUsers",
-							"Outputs.Name"
-						]
-					},
-					"functionlivvyUsersArn": {
-						"Fn::GetAtt": [
-							"functionlivvyUsers",
-							"Outputs.Arn"
-						]
-					},
+					"S3DeploymentBucket": "livvy-20190427150112-deployment",
+					"S3DeploymentRootKey": "amplify-appsync-files/2d423392b3dcdb01b9bd553cd08b321577fd1833",
 					"env": "dev"
 				}
 			}

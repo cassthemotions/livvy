@@ -1,5 +1,0 @@
-{
-    "tableName": "livvyMarketplace",
-    "partitionKeyName": "id",
-    "partitionKeyType": "S"
-}

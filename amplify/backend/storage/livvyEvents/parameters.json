@@ -1,7 +1,0 @@
-{
-    "tableName": "livvyEvents",
-    "partitionKeyName": "id",
-    "partitionKeyType": "S",
-    "sortKeyName": "eventId",
-    "sortKeyType": "S"
-}
