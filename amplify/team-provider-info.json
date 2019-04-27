@@ -1,18 +1,18 @@
 {
     "dev": {
         "awscloudformation": {
-            "AuthRoleName": "livvy-20190427150112-authRole",
-            "UnauthRoleArn": "arn:aws:iam::878435980219:role/livvy-20190427150112-unauthRole",
-            "AuthRoleArn": "arn:aws:iam::878435980219:role/livvy-20190427150112-authRole",
+            "AuthRoleName": "liv-20190427160526-authRole",
+            "UnauthRoleArn": "arn:aws:iam::878435980219:role/liv-20190427160526-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::878435980219:role/liv-20190427160526-authRole",
             "Region": "us-west-2",
-            "DeploymentBucketName": "livvy-20190427150112-deployment",
-            "UnauthRoleName": "livvy-20190427150112-unauthRole",
-            "StackName": "livvy-20190427150112",
-            "StackId": "arn:aws:cloudformation:us-west-2:878435980219:stack/livvy-20190427150112/f9089dc0-6937-11e9-8c3f-0a0b4fb2a0e4"
+            "DeploymentBucketName": "liv-20190427160526-deployment",
+            "UnauthRoleName": "liv-20190427160526-unauthRole",
+            "StackName": "liv-20190427160526",
+            "StackId": "arn:aws:cloudformation:us-west-2:878435980219:stack/liv-20190427160526/f1ceb4f0-6940-11e9-92bf-0206b4669a7e"
         },
         "categories": {
             "auth": {
-                "cognitoad13bed4": {}
+                "cognito76a54f0c": {}
             }
         }
     }

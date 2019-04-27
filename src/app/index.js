@@ -8,8 +8,8 @@ import SideNav from '../ui/components/Sidebar/Sidebar';
 import styles from './app.module.scss';
 
 import Amplify from 'aws-amplify';
-import aws_exports from '../aws-exports';
 import { withAuthenticator } from 'aws-amplify-react';
+import aws_exports from '../aws-exports';
 Amplify.configure(aws_exports);
 
 const App = (props) => {

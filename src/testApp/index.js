@@ -4,13 +4,20 @@ import './TestApp.css';
 import { API } from 'aws-amplify';
 
 import { Button } from 'semantic-ui-react'
+import * as v1 from '../v1';
+
 
 class TestApp extends Component {
 
 
+  createUser = async () => {
+    const user = await v1.createUser({ firstName: 'juan' });
+    console.log(user);
+  }
+
   getUser = async () => {
-    const response = await API.get('livvyAPI', '/users');
-    console.log(JSON.stringify(response, null, 2));
+    const user = await v1.getUser();
+    console.log(user);
   }
 
   getAllUsers = async () => {
@@ -91,6 +98,7 @@ class TestApp extends Component {
 
         <br></br>
         <h2>Users</h2>
+        <Button secondary onClick={this.createUser}>create user</Button>
         <Button secondary onClick={this.getUser}>get user</Button>
         <Button secondary onClick={this.getAllUsers}>get all users</Button>
         <Button secondary onClick={this.updateUser}>update user</Button>

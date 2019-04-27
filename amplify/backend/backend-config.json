@@ -1,12 +1,12 @@
 {
 	"auth": {
-		"cognitoad13bed4": {
+		"cognito76a54f0c": {
 			"service": "Cognito",
 			"providerPlugin": "awscloudformation"
 		}
 	},
 	"api": {
-		"livvy": {
+		"liv": {
 			"service": "AppSync",
 			"providerPlugin": "awscloudformation",
 			"output": {

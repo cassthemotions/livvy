@@ -1,7 +1,7 @@
 type User @model @auth(rules: [
   { allow: owner, ownerField: "id" }
   ]) {
-  id: String! @auth(rules:[ { allow: owner, groups: ["everyone"], operations: [read] }])
+  id: String!
   firstName: String
   lastName: String
   dobMonth: String
@@ -14,12 +14,12 @@ type User @model @auth(rules: [
   city: String
   postalCode: String
   email: String
-  user_conversations: [User_Conversation] @connection(name: "UserConversations")
+  userConversations: [UserConversation] @connection(name: "UserConversations")
 }
 
 
 
-type User_Conversation @model @auth(rules: [
+type UserConversation @model @auth(rules: [
   { allow: owner },
   { allow: owner, groups: ["everyone"], operations: [read] }
 ]) {
@@ -36,7 +36,7 @@ type Conversation @model @auth(rules: [
   { allow: owner, groups: ["everyone"], operations: [read] }
 ]) {
   id: ID!
-  conversation_users: [User_Conversation] @connection(name: "ConversationUsers")
+  conversationUsers: [UserConversation] @connection(name: "ConversationUsers")
   archived: String
   messages: [Message] @connection(name: "ConversationMessages")
 }

@@ -1,51 +1,294 @@
 // eslint-disable
 // this is an auto generated file. This will be overwritten
 
-export const onCreateTask = `subscription OnCreateTask {
-  onCreateTask {
+export const onCreateUser = `subscription OnCreateUser {
+  onCreateUser {
     id
-    title
-    description
-    status
+    firstName
+    lastName
+    dobMonth
+    dobDay
+    dobYear
+    address1
+    address2
+    country
+    region
+    city
+    postalCode
+    email
+    userConversations {
+      items {
+        id
+      }
+      nextToken
+    }
   }
 }
 `;
-export const onUpdateTask = `subscription OnUpdateTask {
-  onUpdateTask {
+export const onUpdateUser = `subscription OnUpdateUser {
+  onUpdateUser {
     id
-    title
-    description
-    status
+    firstName
+    lastName
+    dobMonth
+    dobDay
+    dobYear
+    address1
+    address2
+    country
+    region
+    city
+    postalCode
+    email
+    userConversations {
+      items {
+        id
+      }
+      nextToken
+    }
   }
 }
 `;
-export const onDeleteTask = `subscription OnDeleteTask {
-  onDeleteTask {
+export const onDeleteUser = `subscription OnDeleteUser {
+  onDeleteUser {
     id
-    title
-    description
-    status
+    firstName
+    lastName
+    dobMonth
+    dobDay
+    dobYear
+    address1
+    address2
+    country
+    region
+    city
+    postalCode
+    email
+    userConversations {
+      items {
+        id
+      }
+      nextToken
+    }
   }
 }
 `;
-export const onCreatePrivateNote = `subscription OnCreatePrivateNote {
-  onCreatePrivateNote {
+export const onCreateUserConversation = `subscription OnCreateUserConversation {
+  onCreateUserConversation {
     id
-    content
+    user {
+      id
+      firstName
+      lastName
+      dobMonth
+      dobDay
+      dobYear
+      address1
+      address2
+      country
+      region
+      city
+      postalCode
+      email
+      userConversations {
+        nextToken
+      }
+    }
+    conversation {
+      id
+      conversationUsers {
+        nextToken
+      }
+      archived
+      messages {
+        nextToken
+      }
+    }
   }
 }
 `;
-export const onUpdatePrivateNote = `subscription OnUpdatePrivateNote {
-  onUpdatePrivateNote {
+export const onUpdateUserConversation = `subscription OnUpdateUserConversation {
+  onUpdateUserConversation {
     id
-    content
+    user {
+      id
+      firstName
+      lastName
+      dobMonth
+      dobDay
+      dobYear
+      address1
+      address2
+      country
+      region
+      city
+      postalCode
+      email
+      userConversations {
+        nextToken
+      }
+    }
+    conversation {
+      id
+      conversationUsers {
+        nextToken
+      }
+      archived
+      messages {
+        nextToken
+      }
+    }
   }
 }
 `;
-export const onDeletePrivateNote = `subscription OnDeletePrivateNote {
-  onDeletePrivateNote {
+export const onDeleteUserConversation = `subscription OnDeleteUserConversation {
+  onDeleteUserConversation {
     id
-    content
+    user {
+      id
+      firstName
+      lastName
+      dobMonth
+      dobDay
+      dobYear
+      address1
+      address2
+      country
+      region
+      city
+      postalCode
+      email
+      userConversations {
+        nextToken
+      }
+    }
+    conversation {
+      id
+      conversationUsers {
+        nextToken
+      }
+      archived
+      messages {
+        nextToken
+      }
+    }
+  }
+}
+`;
+export const onCreateConversation = `subscription OnCreateConversation {
+  onCreateConversation {
+    id
+    conversationUsers {
+      items {
+        id
+      }
+      nextToken
+    }
+    archived
+    messages {
+      items {
+        id
+        users
+        archived
+      }
+      nextToken
+    }
+  }
+}
+`;
+export const onUpdateConversation = `subscription OnUpdateConversation {
+  onUpdateConversation {
+    id
+    conversationUsers {
+      items {
+        id
+      }
+      nextToken
+    }
+    archived
+    messages {
+      items {
+        id
+        users
+        archived
+      }
+      nextToken
+    }
+  }
+}
+`;
+export const onDeleteConversation = `subscription OnDeleteConversation {
+  onDeleteConversation {
+    id
+    conversationUsers {
+      items {
+        id
+      }
+      nextToken
+    }
+    archived
+    messages {
+      items {
+        id
+        users
+        archived
+      }
+      nextToken
+    }
+  }
+}
+`;
+export const onCreateMessage = `subscription OnCreateMessage {
+  onCreateMessage {
+    id
+    users
+    archived
+    conversation {
+      id
+      conversationUsers {
+        nextToken
+      }
+      archived
+      messages {
+        nextToken
+      }
+    }
+  }
+}
+`;
+export const onUpdateMessage = `subscription OnUpdateMessage {
+  onUpdateMessage {
+    id
+    users
+    archived
+    conversation {
+      id
+      conversationUsers {
+        nextToken
+      }
+      archived
+      messages {
+        nextToken
+      }
+    }
+  }
+}
+`;
+export const onDeleteMessage = `subscription OnDeleteMessage {
+  onDeleteMessage {
+    id
+    users
+    archived
+    conversation {
+      id
+      conversationUsers {
+        nextToken
+      }
+      archived
+      messages {
+        nextToken
+      }
+    }
   }
 }
 `;

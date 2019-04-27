@@ -11,6 +11,7 @@ import Marketplace from './screens/marketplace';
 import Events from './screens/events';
 import Maintenance from './screens/maintenance';
 import Security from './screens/security';
+import TestApp from './testApp';
 
 import store from './_shared/store';
 
@@ -25,6 +26,7 @@ ReactDOM.render(
           <Route path="/events" component={Events} />
           <Route path="/maintenance" component={Maintenance} />
           <Route path="/security" component={Security} />
+          <Route path="/test" component={TestApp} />
         </Switch>
       </App>
     </BrowserRouter>
