@@ -16,12 +16,6 @@ export const getUser = `query GetUser($id: ID!) {
     city
     postalCode
     email
-    userConversations {
-      items {
-        id
-      }
-      nextToken
-    }
   }
 }
 `;
@@ -45,75 +39,6 @@ export const listUsers = `query ListUsers(
       city
       postalCode
       email
-      userConversations {
-        nextToken
-      }
-    }
-    nextToken
-  }
-}
-`;
-export const getUserConversation = `query GetUserConversation($id: ID!) {
-  getUserConversation(id: $id) {
-    id
-    user {
-      id
-      firstName
-      lastName
-      dobMonth
-      dobDay
-      dobYear
-      address1
-      address2
-      country
-      region
-      city
-      postalCode
-      email
-      userConversations {
-        nextToken
-      }
-    }
-    conversation {
-      id
-      conversationUsers {
-        nextToken
-      }
-      archived
-      messages {
-        nextToken
-      }
-    }
-  }
-}
-`;
-export const listUserConversations = `query ListUserConversations(
-  $filter: ModelUserConversationFilterInput
-  $limit: Int
-  $nextToken: String
-) {
-  listUserConversations(filter: $filter, limit: $limit, nextToken: $nextToken) {
-    items {
-      id
-      user {
-        id
-        firstName
-        lastName
-        dobMonth
-        dobDay
-        dobYear
-        address1
-        address2
-        country
-        region
-        city
-        postalCode
-        email
-      }
-      conversation {
-        id
-        archived
-      }
     }
     nextToken
   }
@@ -122,17 +47,13 @@ export const listUserConversations = `query ListUserConversations(
 export const getConversation = `query GetConversation($id: ID!) {
   getConversation(id: $id) {
     id
-    conversationUsers {
-      items {
-        id
-      }
-      nextToken
-    }
+    users
     archived
     messages {
       items {
         id
         users
+        content
         archived
       }
       nextToken
@@ -148,9 +69,7 @@ export const listConversations = `query ListConversations(
   listConversations(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
-      conversationUsers {
-        nextToken
-      }
+      users
       archived
       messages {
         nextToken
@@ -164,12 +83,11 @@ export const getMessage = `query GetMessage($id: ID!) {
   getMessage(id: $id) {
     id
     users
+    content
     archived
     conversation {
       id
-      conversationUsers {
-        nextToken
-      }
+      users
       archived
       messages {
         nextToken
@@ -187,9 +105,88 @@ export const listMessages = `query ListMessages(
     items {
       id
       users
+      content
       archived
       conversation {
         id
+        users
+        archived
+      }
+    }
+    nextToken
+  }
+}
+`;
+export const getChannel = `query GetChannel($id: ID!) {
+  getChannel(id: $id) {
+    id
+    description
+    users
+    archived
+    ChannelMessages {
+      items {
+        id
+        users
+        content
+        archived
+      }
+      nextToken
+    }
+  }
+}
+`;
+export const listChannels = `query ListChannels(
+  $filter: ModelChannelFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listChannels(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      description
+      users
+      archived
+      ChannelMessages {
+        nextToken
+      }
+    }
+    nextToken
+  }
+}
+`;
+export const getChannelMessage = `query GetChannelMessage($id: ID!) {
+  getChannelMessage(id: $id) {
+    id
+    users
+    content
+    archived
+    channel {
+      id
+      description
+      users
+      archived
+      ChannelMessages {
+        nextToken
+      }
+    }
+  }
+}
+`;
+export const listChannelMessages = `query ListChannelMessages(
+  $filter: ModelChannelMessageFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listChannelMessages(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      users
+      content
+      archived
+      channel {
+        id
+        description
+        users
         archived
       }
     }

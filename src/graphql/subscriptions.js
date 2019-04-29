@@ -16,12 +16,6 @@ export const onCreateUser = `subscription OnCreateUser {
     city
     postalCode
     email
-    userConversations {
-      items {
-        id
-      }
-      nextToken
-    }
   }
 }
 `;
@@ -40,12 +34,6 @@ export const onUpdateUser = `subscription OnUpdateUser {
     city
     postalCode
     email
-    userConversations {
-      items {
-        id
-      }
-      nextToken
-    }
   }
 }
 `;
@@ -64,131 +52,19 @@ export const onDeleteUser = `subscription OnDeleteUser {
     city
     postalCode
     email
-    userConversations {
-      items {
-        id
-      }
-      nextToken
-    }
-  }
-}
-`;
-export const onCreateUserConversation = `subscription OnCreateUserConversation {
-  onCreateUserConversation {
-    id
-    user {
-      id
-      firstName
-      lastName
-      dobMonth
-      dobDay
-      dobYear
-      address1
-      address2
-      country
-      region
-      city
-      postalCode
-      email
-      userConversations {
-        nextToken
-      }
-    }
-    conversation {
-      id
-      conversationUsers {
-        nextToken
-      }
-      archived
-      messages {
-        nextToken
-      }
-    }
-  }
-}
-`;
-export const onUpdateUserConversation = `subscription OnUpdateUserConversation {
-  onUpdateUserConversation {
-    id
-    user {
-      id
-      firstName
-      lastName
-      dobMonth
-      dobDay
-      dobYear
-      address1
-      address2
-      country
-      region
-      city
-      postalCode
-      email
-      userConversations {
-        nextToken
-      }
-    }
-    conversation {
-      id
-      conversationUsers {
-        nextToken
-      }
-      archived
-      messages {
-        nextToken
-      }
-    }
-  }
-}
-`;
-export const onDeleteUserConversation = `subscription OnDeleteUserConversation {
-  onDeleteUserConversation {
-    id
-    user {
-      id
-      firstName
-      lastName
-      dobMonth
-      dobDay
-      dobYear
-      address1
-      address2
-      country
-      region
-      city
-      postalCode
-      email
-      userConversations {
-        nextToken
-      }
-    }
-    conversation {
-      id
-      conversationUsers {
-        nextToken
-      }
-      archived
-      messages {
-        nextToken
-      }
-    }
   }
 }
 `;
 export const onCreateConversation = `subscription OnCreateConversation {
   onCreateConversation {
     id
-    conversationUsers {
-      items {
-        id
-      }
-      nextToken
-    }
+    users
     archived
     messages {
       items {
         id
         users
+        content
         archived
       }
       nextToken
@@ -199,17 +75,13 @@ export const onCreateConversation = `subscription OnCreateConversation {
 export const onUpdateConversation = `subscription OnUpdateConversation {
   onUpdateConversation {
     id
-    conversationUsers {
-      items {
-        id
-      }
-      nextToken
-    }
+    users
     archived
     messages {
       items {
         id
         users
+        content
         archived
       }
       nextToken
@@ -220,17 +92,13 @@ export const onUpdateConversation = `subscription OnUpdateConversation {
 export const onDeleteConversation = `subscription OnDeleteConversation {
   onDeleteConversation {
     id
-    conversationUsers {
-      items {
-        id
-      }
-      nextToken
-    }
+    users
     archived
     messages {
       items {
         id
         users
+        content
         archived
       }
       nextToken
@@ -242,12 +110,11 @@ export const onCreateMessage = `subscription OnCreateMessage {
   onCreateMessage {
     id
     users
+    content
     archived
     conversation {
       id
-      conversationUsers {
-        nextToken
-      }
+      users
       archived
       messages {
         nextToken
@@ -260,12 +127,11 @@ export const onUpdateMessage = `subscription OnUpdateMessage {
   onUpdateMessage {
     id
     users
+    content
     archived
     conversation {
       id
-      conversationUsers {
-        nextToken
-      }
+      users
       archived
       messages {
         nextToken
@@ -278,14 +144,121 @@ export const onDeleteMessage = `subscription OnDeleteMessage {
   onDeleteMessage {
     id
     users
+    content
     archived
     conversation {
       id
-      conversationUsers {
-        nextToken
-      }
+      users
       archived
       messages {
+        nextToken
+      }
+    }
+  }
+}
+`;
+export const onCreateChannel = `subscription OnCreateChannel {
+  onCreateChannel {
+    id
+    description
+    users
+    archived
+    ChannelMessages {
+      items {
+        id
+        users
+        content
+        archived
+      }
+      nextToken
+    }
+  }
+}
+`;
+export const onUpdateChannel = `subscription OnUpdateChannel {
+  onUpdateChannel {
+    id
+    description
+    users
+    archived
+    ChannelMessages {
+      items {
+        id
+        users
+        content
+        archived
+      }
+      nextToken
+    }
+  }
+}
+`;
+export const onDeleteChannel = `subscription OnDeleteChannel {
+  onDeleteChannel {
+    id
+    description
+    users
+    archived
+    ChannelMessages {
+      items {
+        id
+        users
+        content
+        archived
+      }
+      nextToken
+    }
+  }
+}
+`;
+export const onCreateChannelMessage = `subscription OnCreateChannelMessage {
+  onCreateChannelMessage {
+    id
+    users
+    content
+    archived
+    channel {
+      id
+      description
+      users
+      archived
+      ChannelMessages {
+        nextToken
+      }
+    }
+  }
+}
+`;
+export const onUpdateChannelMessage = `subscription OnUpdateChannelMessage {
+  onUpdateChannelMessage {
+    id
+    users
+    content
+    archived
+    channel {
+      id
+      description
+      users
+      archived
+      ChannelMessages {
+        nextToken
+      }
+    }
+  }
+}
+`;
+export const onDeleteChannelMessage = `subscription OnDeleteChannelMessage {
+  onDeleteChannelMessage {
+    id
+    users
+    content
+    archived
+    channel {
+      id
+      description
+      users
+      archived
+      ChannelMessages {
         nextToken
       }
     }

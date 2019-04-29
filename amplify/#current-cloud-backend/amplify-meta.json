@@ -29,7 +29,7 @@
 				"IdentityPoolName": "cognito76a54f0c_identitypool_76a54f0c__dev",
 				"UserPoolName": "cognito76a54f0c_userpool_76a54f0c"
 			},
-			"lastPushTimeStamp": "2019-04-27T23:28:05.026Z",
+			"lastPushTimeStamp": "2019-04-29T07:03:39.064Z",
 			"providerMetadata": {
 				"s3TemplateURL": "https://s3.amazonaws.com/liv-20190427160526-deployment/amplify-cfn-templates/auth/cognito76a54f0c-cloudformation-template.yml",
 				"logicalId": "authcognito76a54f0c"
@@ -37,20 +37,20 @@
 		}
 	},
 	"api": {
-		"liv": {
+		"livvyAPI": {
 			"service": "AppSync",
 			"providerPlugin": "awscloudformation",
 			"output": {
 				"securityType": "AMAZON_COGNITO_USER_POOLS",
-				"GraphQLAPIIdOutput": "jdrkj4ojpzcufkrtsccmgm3wze",
-				"GraphQLAPIEndpointOutput": "https://d5erxtlizzcu3drlqedndtdoaa.appsync-api.us-west-2.amazonaws.com/graphql"
+				"GraphQLAPIIdOutput": "oletkpfrkrchdfvo7i3lbxk26q",
+				"GraphQLAPIEndpointOutput": "https://fsgcgs732nggddgwpschsnw4a4.appsync-api.us-west-2.amazonaws.com/graphql"
 			},
-			"lastPushTimeStamp": "2019-04-27T23:28:06.150Z",
 			"providerMetadata": {
 				"s3TemplateURL": "https://s3.amazonaws.com/liv-20190427160526-deployment/amplify-cfn-templates/api/cloudformation-template.json",
-				"logicalId": "apiliv"
+				"logicalId": "apilivvyAPI"
 			},
-			"lastPushDirHash": "KBad1694UdE+5q3EbdWv+54dG6o="
+			"lastPushTimeStamp": "2019-04-29T07:03:41.332Z",
+			"lastPushDirHash": "rwoQv7JPcUXzQq5vGJSKHHWedlw="
 		}
 	}
 }
