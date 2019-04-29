@@ -2,19 +2,13 @@ import React from 'react';
 import { withRouter } from 'react-router';
 import { Icon } from 'semantic-ui-react';
 import { subscribe } from 'react-contextual';
-import AccountBadge from "../../ui/components/AccountBadge/AccountBadge";
-import styles from './topNav.module.scss';
+import AccountBadge from "../AccountBadge/AccountBadge";
+import styles from './styles.js';
 
 const TopNav = (props) => {
 
   return (
-    <div className={styles.container}>
-      <Icon
-        name="bars"
-        size="big"
-        className={styles.menu}
-        onClick={props.toggleSideNav}
-      />
+    <div style={styles.container}>
       <AccountBadge history={props.history} />
     </div>
   );

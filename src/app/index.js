@@ -3,7 +3,7 @@ import { subscribe } from 'react-contextual';
 
 import 'semantic-ui-css/semantic.css';
 
-import TopNav from './topNav';
+import Header from '../ui/components/Header';
 import SideNav from '../ui/components/Sidebar/Sidebar';
 import styles from './app.module.scss';
 
@@ -13,14 +13,12 @@ import aws_exports from '../aws-exports';
 Amplify.configure(aws_exports);
 
 const App = (props) => {
-
-
   return (
     <div className={styles.container}>
       <SideNav />
 
       <div className={styles.main}>
-        <TopNav />
+        <Header />
 
         <div className={styles.children}>
           {props.children}
