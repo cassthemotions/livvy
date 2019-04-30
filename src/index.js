@@ -4,7 +4,7 @@ import { Route, Switch, Redirect } from 'react-router';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-contextual';
 
-import App from './app';
+import Template from './ui/templates/livvy/';
 
 import Messenger from './screens/messenger';
 import Marketplace from './screens/marketplace';
@@ -18,7 +18,7 @@ import store from './_shared/store';
 ReactDOM.render(
   <Provider {...store}>
     <BrowserRouter>
-      <App>
+      <Template>
         <Switch>
           <Redirect exact path="/" to="/messenger" />
           <Route path="/messenger" component={Messenger} />
@@ -28,7 +28,7 @@ ReactDOM.render(
           <Route path="/security" component={Security} />
           <Route path="/test" component={TestApp} />
         </Switch>
-      </App>
+      </Template>
     </BrowserRouter>
   </Provider>,
   document.getElementById('root')
