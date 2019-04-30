@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "./styles";
 import { subscribe } from "react-contextual";
-import ContentSideBar from "../../ui/layouts/ContentSidebar/ContentSideBar"
-// import Subnav from "./components/Subnav";
+import ContentSideBar from "../../ui/layouts/ContentSidebar"
+import Subnav from "./components/Subnav";
 import Post from "./components/Post";
 
 const subheader = () => {
@@ -11,7 +11,7 @@ const subheader = () => {
     );
 }
 
-// const sidebar = <Subnav />;
+const sidebar = <Subnav />;
 const content = <Post />;
 const subfooter = "This is my subfooter";
 
@@ -20,7 +20,7 @@ const Marketplace = props => {
         <ContentSideBar
             styles={styles}
             subheader={subheader()}
-            // sidebar={sidebar}
+            sidebar={sidebar}
             content={content}
             subfooter={subfooter}
         />

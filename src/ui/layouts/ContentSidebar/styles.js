@@ -1,5 +1,6 @@
 const styles = {
     container: {
+        flex: 1,
     },
     subheader:{
     },
@@ -7,10 +8,10 @@ const styles = {
         display: "flex",
     },
     sidebar: {
-        width: "25%",
+        flexGrow: 1,
     },
     content: {
-        width: "75%",
+        flexGrow: 3,
     },
     subfooter: {
     },

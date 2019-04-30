@@ -1,5 +1,5 @@
 import React from 'react';
-import Subnav from '../../../../ui/components/Subnav/Subnav.js';
+import Subnav from '../../../../ui/components/Subnav';
 
 const links = [
     {
@@ -28,12 +28,10 @@ const links = [
     }
 ];
 
-class SubnavDom extends React.Component {
-    render (){
-        return (
-            <Subnav links={links} />
-        );
-    }
+const SubnavDom = () => {
+    return (
+        <Subnav links={links} />
+    );
 }
 
 export default SubnavDom;
