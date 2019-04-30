@@ -4,7 +4,7 @@ import { subscribe } from 'react-contextual';
 import 'semantic-ui-css/semantic.css';
 
 import Header from '../ui/components/Header';
-import SideNav from '../ui/components/Sidebar/Sidebar';
+import Sidebar from '../ui/components/Sidebar';
 import styles from './app.module.scss';
 
 import Amplify from 'aws-amplify';
@@ -17,7 +17,7 @@ const App = (props) => {
     <div className={styles.container}>
         <Header />
         <div className={styles.main}>
-            <SideNav />
+            <Sidebar />
             <div className={styles.children}>
                 {props.children}
             </div>

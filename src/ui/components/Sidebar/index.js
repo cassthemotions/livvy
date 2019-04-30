@@ -6,7 +6,7 @@ import Logo from '../Logo/Logo';
 
 import styles from './styles';
 
-const SideNav = props => {
+const Sidebar = props => {
   return (
     <div style={styles.container}>
         <Logo />
@@ -16,4 +16,4 @@ const SideNav = props => {
   );
 }
 
-export default subscribe()(SideNav);
+export default subscribe()(Sidebar);
