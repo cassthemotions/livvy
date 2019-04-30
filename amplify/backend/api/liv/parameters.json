@@ -1,5 +1,5 @@
 {
-    "AppSyncApiName": "livvyAPI",
+    "AppSyncApiName": "liv",
     "DynamoDBBillingMode": "PAY_PER_REQUEST",
     "AuthCognitoUserPoolId": {
         "Fn::GetAtt": [

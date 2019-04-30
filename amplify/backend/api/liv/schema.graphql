@@ -1,0 +1,92 @@
+type User @model {
+  id: String! 
+  firstName: String 
+  lastName: String
+  dobMonth: String @auth(rules: [{ allow: owner, ownerField: "id" }])
+  dobDay: Int @auth(rules: [{ allow: owner, ownerField: "id" }])
+  dobYear: Int @auth(rules: [{ allow: owner, ownerField: "id" }])
+  address1: String @auth(rules: [{ allow: owner, ownerField: "id" }])
+  address2: String @auth(rules: [{ allow: owner, ownerField: "id" }])
+  country: String @auth(rules: [{ allow: owner, ownerField: "id" }])
+  region: String @auth(rules: [{ allow: owner, ownerField: "id" }])
+  city: String @auth(rules: [{ allow: owner, ownerField: "id" }])
+  postalCode: String @auth(rules: [{ allow: owner, ownerField: "id" }])
+  email: String @auth(rules: [{ allow: owner, ownerField: "id" }])
+}
+
+
+
+
+
+type Conversation @model @auth(rules: [
+  { allow: owner },
+  { allow: owner, ownerField: "users", operations: [read] }
+]) {
+  id: String!
+  users: [String]
+  archived: String
+  messages: [Message] @connection(name: "ConversationMessages")
+}
+
+
+
+
+
+type Channel @model @auth(rules: [
+  { allow: owner },
+  { allow: owner, ownerField: "users", operations: [read] }
+]) {
+  id: String!
+  description: String
+  users: [String] @auth(rules: [{ allow: owner, ownerField: "users" }])
+  archived: String
+  messages: [Message] @connection(name: "ChannelMessages") @auth(rules: [{ allow: owner, ownerField: "users" }])
+}
+
+
+
+
+
+type Message @model(queries:null) @auth(rules: [
+  { allow: owner }
+]) {
+  id: ID!
+  content: String
+  archived: String
+  conversation: Conversation @connection(name: "ConversationMessages")
+  channel: Channel @connection(name: "ChannelMessages")
+}
+
+
+
+
+
+type Marketplace @model @auth(rules: [
+  { allow: owner },
+  { allow: owner, ownerField: "users", operations: [read] }
+]) {
+  id: ID!
+  name: String
+  description: String
+  users: [String] @auth(rules: [{ allow: owner, ownerField: "users" }])
+  archived: String
+  posts: [Post] @connection(name: "MarketplacePosts")
+}
+
+
+
+
+
+type Post @model(queries:null) @auth(rules: [
+  { allow: owner }
+]) {
+  id: ID!
+  title: String
+  subtitle: String
+  description: String
+  archived: String
+  marketplace: Marketplace @connection(name: "MarketplacePosts")
+}
+
+
+

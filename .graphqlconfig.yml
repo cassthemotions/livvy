@@ -1,5 +1,5 @@
 projects:
-  livvyAPI:
+  liv:
     schemaPath: src/graphql/schema.json
     includes:
       - src/graphql/**/*.js
@@ -10,7 +10,7 @@ projects:
         codeGenTarget: javascript
         generatedFileName: ''
         docsFilePath: src/graphql
-        graphQLApiId: oletkpfrkrchdfvo7i3lbxk26q
+        graphQLApiId: stv5tnvdibdtzjac6kzidapuuq
       endpoints:
         prod: >-
-          https://fsgcgs732nggddgwpschsnw4a4.appsync-api.us-west-2.amazonaws.com/graphql
+          https://5u7et2kgufgcpe2rxuchlj7auq.appsync-api.us-west-2.amazonaws.com/graphql

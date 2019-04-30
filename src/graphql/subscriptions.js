@@ -63,7 +63,6 @@ export const onCreateConversation = `subscription OnCreateConversation {
     messages {
       items {
         id
-        users
         content
         archived
       }
@@ -80,7 +79,6 @@ export const onUpdateConversation = `subscription OnUpdateConversation {
     messages {
       items {
         id
-        users
         content
         archived
       }
@@ -97,62 +95,10 @@ export const onDeleteConversation = `subscription OnDeleteConversation {
     messages {
       items {
         id
-        users
         content
         archived
       }
       nextToken
-    }
-  }
-}
-`;
-export const onCreateMessage = `subscription OnCreateMessage {
-  onCreateMessage {
-    id
-    users
-    content
-    archived
-    conversation {
-      id
-      users
-      archived
-      messages {
-        nextToken
-      }
-    }
-  }
-}
-`;
-export const onUpdateMessage = `subscription OnUpdateMessage {
-  onUpdateMessage {
-    id
-    users
-    content
-    archived
-    conversation {
-      id
-      users
-      archived
-      messages {
-        nextToken
-      }
-    }
-  }
-}
-`;
-export const onDeleteMessage = `subscription OnDeleteMessage {
-  onDeleteMessage {
-    id
-    users
-    content
-    archived
-    conversation {
-      id
-      users
-      archived
-      messages {
-        nextToken
-      }
     }
   }
 }
@@ -163,10 +109,9 @@ export const onCreateChannel = `subscription OnCreateChannel {
     description
     users
     archived
-    ChannelMessages {
+    messages {
       items {
         id
-        users
         content
         archived
       }
@@ -181,10 +126,9 @@ export const onUpdateChannel = `subscription OnUpdateChannel {
     description
     users
     archived
-    ChannelMessages {
+    messages {
       items {
         id
-        users
         content
         archived
       }
@@ -199,10 +143,9 @@ export const onDeleteChannel = `subscription OnDeleteChannel {
     description
     users
     archived
-    ChannelMessages {
+    messages {
       items {
         id
-        users
         content
         archived
       }
@@ -211,54 +154,195 @@ export const onDeleteChannel = `subscription OnDeleteChannel {
   }
 }
 `;
-export const onCreateChannelMessage = `subscription OnCreateChannelMessage {
-  onCreateChannelMessage {
+export const onCreateMessage = `subscription OnCreateMessage {
+  onCreateMessage {
     id
-    users
     content
     archived
+    conversation {
+      id
+      users
+      archived
+      messages {
+        nextToken
+      }
+    }
     channel {
       id
       description
       users
       archived
-      ChannelMessages {
+      messages {
         nextToken
       }
     }
   }
 }
 `;
-export const onUpdateChannelMessage = `subscription OnUpdateChannelMessage {
-  onUpdateChannelMessage {
+export const onUpdateMessage = `subscription OnUpdateMessage {
+  onUpdateMessage {
     id
-    users
     content
     archived
+    conversation {
+      id
+      users
+      archived
+      messages {
+        nextToken
+      }
+    }
     channel {
       id
       description
       users
       archived
-      ChannelMessages {
+      messages {
         nextToken
       }
     }
   }
 }
 `;
-export const onDeleteChannelMessage = `subscription OnDeleteChannelMessage {
-  onDeleteChannelMessage {
+export const onDeleteMessage = `subscription OnDeleteMessage {
+  onDeleteMessage {
     id
-    users
     content
     archived
+    conversation {
+      id
+      users
+      archived
+      messages {
+        nextToken
+      }
+    }
     channel {
       id
       description
       users
       archived
-      ChannelMessages {
+      messages {
+        nextToken
+      }
+    }
+  }
+}
+`;
+export const onCreateMarketplace = `subscription OnCreateMarketplace {
+  onCreateMarketplace {
+    id
+    name
+    description
+    users
+    archived
+    posts {
+      items {
+        id
+        title
+        subtitle
+        description
+        archived
+      }
+      nextToken
+    }
+  }
+}
+`;
+export const onUpdateMarketplace = `subscription OnUpdateMarketplace {
+  onUpdateMarketplace {
+    id
+    name
+    description
+    users
+    archived
+    posts {
+      items {
+        id
+        title
+        subtitle
+        description
+        archived
+      }
+      nextToken
+    }
+  }
+}
+`;
+export const onDeleteMarketplace = `subscription OnDeleteMarketplace {
+  onDeleteMarketplace {
+    id
+    name
+    description
+    users
+    archived
+    posts {
+      items {
+        id
+        title
+        subtitle
+        description
+        archived
+      }
+      nextToken
+    }
+  }
+}
+`;
+export const onCreatePost = `subscription OnCreatePost {
+  onCreatePost {
+    id
+    title
+    subtitle
+    description
+    archived
+    marketplace {
+      id
+      name
+      description
+      users
+      archived
+      posts {
+        nextToken
+      }
+    }
+  }
+}
+`;
+export const onUpdatePost = `subscription OnUpdatePost {
+  onUpdatePost {
+    id
+    title
+    subtitle
+    description
+    archived
+    marketplace {
+      id
+      name
+      description
+      users
+      archived
+      posts {
+        nextToken
+      }
+    }
+  }
+}
+`;
+export const onDeletePost = `subscription OnDeletePost {
+  onDeletePost {
+    id
+    title
+    subtitle
+    description
+    archived
+    marketplace {
+      id
+      name
+      description
+      users
+      archived
+      posts {
         nextToken
       }
     }

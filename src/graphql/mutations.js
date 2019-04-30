@@ -63,7 +63,6 @@ export const createConversation = `mutation CreateConversation($input: CreateCon
     messages {
       items {
         id
-        users
         content
         archived
       }
@@ -80,7 +79,6 @@ export const updateConversation = `mutation UpdateConversation($input: UpdateCon
     messages {
       items {
         id
-        users
         content
         archived
       }
@@ -97,62 +95,10 @@ export const deleteConversation = `mutation DeleteConversation($input: DeleteCon
     messages {
       items {
         id
-        users
         content
         archived
       }
       nextToken
-    }
-  }
-}
-`;
-export const createMessage = `mutation CreateMessage($input: CreateMessageInput!) {
-  createMessage(input: $input) {
-    id
-    users
-    content
-    archived
-    conversation {
-      id
-      users
-      archived
-      messages {
-        nextToken
-      }
-    }
-  }
-}
-`;
-export const updateMessage = `mutation UpdateMessage($input: UpdateMessageInput!) {
-  updateMessage(input: $input) {
-    id
-    users
-    content
-    archived
-    conversation {
-      id
-      users
-      archived
-      messages {
-        nextToken
-      }
-    }
-  }
-}
-`;
-export const deleteMessage = `mutation DeleteMessage($input: DeleteMessageInput!) {
-  deleteMessage(input: $input) {
-    id
-    users
-    content
-    archived
-    conversation {
-      id
-      users
-      archived
-      messages {
-        nextToken
-      }
     }
   }
 }
@@ -163,10 +109,9 @@ export const createChannel = `mutation CreateChannel($input: CreateChannelInput!
     description
     users
     archived
-    ChannelMessages {
+    messages {
       items {
         id
-        users
         content
         archived
       }
@@ -181,10 +126,9 @@ export const updateChannel = `mutation UpdateChannel($input: UpdateChannelInput!
     description
     users
     archived
-    ChannelMessages {
+    messages {
       items {
         id
-        users
         content
         archived
       }
@@ -199,10 +143,9 @@ export const deleteChannel = `mutation DeleteChannel($input: DeleteChannelInput!
     description
     users
     archived
-    ChannelMessages {
+    messages {
       items {
         id
-        users
         content
         archived
       }
@@ -211,54 +154,195 @@ export const deleteChannel = `mutation DeleteChannel($input: DeleteChannelInput!
   }
 }
 `;
-export const createChannelMessage = `mutation CreateChannelMessage($input: CreateChannelMessageInput!) {
-  createChannelMessage(input: $input) {
+export const createMessage = `mutation CreateMessage($input: CreateMessageInput!) {
+  createMessage(input: $input) {
     id
-    users
     content
     archived
+    conversation {
+      id
+      users
+      archived
+      messages {
+        nextToken
+      }
+    }
     channel {
       id
       description
       users
       archived
-      ChannelMessages {
+      messages {
         nextToken
       }
     }
   }
 }
 `;
-export const updateChannelMessage = `mutation UpdateChannelMessage($input: UpdateChannelMessageInput!) {
-  updateChannelMessage(input: $input) {
+export const updateMessage = `mutation UpdateMessage($input: UpdateMessageInput!) {
+  updateMessage(input: $input) {
     id
-    users
     content
     archived
+    conversation {
+      id
+      users
+      archived
+      messages {
+        nextToken
+      }
+    }
     channel {
       id
       description
       users
       archived
-      ChannelMessages {
+      messages {
         nextToken
       }
     }
   }
 }
 `;
-export const deleteChannelMessage = `mutation DeleteChannelMessage($input: DeleteChannelMessageInput!) {
-  deleteChannelMessage(input: $input) {
+export const deleteMessage = `mutation DeleteMessage($input: DeleteMessageInput!) {
+  deleteMessage(input: $input) {
     id
-    users
     content
     archived
+    conversation {
+      id
+      users
+      archived
+      messages {
+        nextToken
+      }
+    }
     channel {
       id
       description
       users
       archived
-      ChannelMessages {
+      messages {
+        nextToken
+      }
+    }
+  }
+}
+`;
+export const createMarketplace = `mutation CreateMarketplace($input: CreateMarketplaceInput!) {
+  createMarketplace(input: $input) {
+    id
+    name
+    description
+    users
+    archived
+    posts {
+      items {
+        id
+        title
+        subtitle
+        description
+        archived
+      }
+      nextToken
+    }
+  }
+}
+`;
+export const updateMarketplace = `mutation UpdateMarketplace($input: UpdateMarketplaceInput!) {
+  updateMarketplace(input: $input) {
+    id
+    name
+    description
+    users
+    archived
+    posts {
+      items {
+        id
+        title
+        subtitle
+        description
+        archived
+      }
+      nextToken
+    }
+  }
+}
+`;
+export const deleteMarketplace = `mutation DeleteMarketplace($input: DeleteMarketplaceInput!) {
+  deleteMarketplace(input: $input) {
+    id
+    name
+    description
+    users
+    archived
+    posts {
+      items {
+        id
+        title
+        subtitle
+        description
+        archived
+      }
+      nextToken
+    }
+  }
+}
+`;
+export const createPost = `mutation CreatePost($input: CreatePostInput!) {
+  createPost(input: $input) {
+    id
+    title
+    subtitle
+    description
+    archived
+    marketplace {
+      id
+      name
+      description
+      users
+      archived
+      posts {
+        nextToken
+      }
+    }
+  }
+}
+`;
+export const updatePost = `mutation UpdatePost($input: UpdatePostInput!) {
+  updatePost(input: $input) {
+    id
+    title
+    subtitle
+    description
+    archived
+    marketplace {
+      id
+      name
+      description
+      users
+      archived
+      posts {
+        nextToken
+      }
+    }
+  }
+}
+`;
+export const deletePost = `mutation DeletePost($input: DeletePostInput!) {
+  deletePost(input: $input) {
+    id
+    title
+    subtitle
+    description
+    archived
+    marketplace {
+      id
+      name
+      description
+      users
+      archived
+      posts {
         nextToken
       }
     }
