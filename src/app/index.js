@@ -15,14 +15,12 @@ Amplify.configure(aws_exports);
 const App = (props) => {
   return (
     <div className={styles.container}>
-      <SideNav />
-
-      <div className={styles.main}>
         <Header />
-
-        <div className={styles.children}>
-          {props.children}
-        </div>
+        <div className={styles.main}>
+            <SideNav />
+            <div className={styles.children}>
+                {props.children}
+            </div>
       </div>
     </div>
   );
