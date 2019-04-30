@@ -1,6 +1,5 @@
 import React from 'react';
 import { withRouter } from 'react-router';
-import { Icon } from 'semantic-ui-react';
 import { subscribe } from 'react-contextual';
 import Logo from '../Logo';
 import AccountBadge from "../AccountBadge";
