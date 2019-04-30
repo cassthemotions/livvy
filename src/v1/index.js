@@ -89,6 +89,23 @@ export const updateConversation = async (conversationInfo) => {
 
 
 /**
+ * Messages
+ */
+
+export const createMessage = async (messageInfo) => {
+
+  const newMessage = await API.graphql(graphqlOperation(mutations.createMessage, { input: messageInfo }));
+  return newMessage;
+}
+
+export const updateMessage = async (messageInfo) => {
+
+  const newMessage = await API.graphql(graphqlOperation(mutations.updateMessage, { input: messageInfo }));
+  return newMessage;
+}
+
+
+/**
  * Channels
  */
 export const listChannels = async () => {
@@ -116,3 +133,50 @@ export const updateChannel = async (channelInfo) => {
 }
 
 
+
+
+/**
+ * Marketplaces
+ */
+export const listMarketplaces = async () => {
+
+  const marketplaces = await API.graphql(graphqlOperation(queries.listMarketplaces));
+  return marketplaces.data.listMarketplaces.items;
+}
+
+export const getMarketplace = async (id) => {
+
+  const marketplace = await API.graphql(graphqlOperation(queries.getMarketplace, { id: id }));
+  return marketplace.data.getMarketplace;
+}
+
+export const createMarketplace = async (marketplaceInfo) => {
+
+  const newMarketplace = await API.graphql(graphqlOperation(mutations.createMarketplace, { input: marketplaceInfo }));
+  return newMarketplace;
+}
+
+export const updateMarketplace = async (marketplaceInfo) => {
+
+  const newMarketplace = await API.graphql(graphqlOperation(mutations.updateMarketplace, { input: marketplaceInfo }));
+  return newMarketplace;
+}
+
+
+
+
+/**
+ * Posts
+ */
+
+export const createPost = async (postInfo) => {
+
+  const newPost = await API.graphql(graphqlOperation(mutations.createPost, { input: postInfo }));
+  return newPost;
+}
+
+export const updatePost = async (postInfo) => {
+
+  const newPost = await API.graphql(graphqlOperation(mutations.updatePost, { input: postInfo }));
+  return newPost;
+}

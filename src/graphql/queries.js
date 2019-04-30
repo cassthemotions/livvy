@@ -52,7 +52,6 @@ export const getConversation = `query GetConversation($id: ID!) {
     messages {
       items {
         id
-        users
         content
         archived
       }
@@ -79,54 +78,15 @@ export const listConversations = `query ListConversations(
   }
 }
 `;
-export const getMessage = `query GetMessage($id: ID!) {
-  getMessage(id: $id) {
-    id
-    users
-    content
-    archived
-    conversation {
-      id
-      users
-      archived
-      messages {
-        nextToken
-      }
-    }
-  }
-}
-`;
-export const listMessages = `query ListMessages(
-  $filter: ModelMessageFilterInput
-  $limit: Int
-  $nextToken: String
-) {
-  listMessages(filter: $filter, limit: $limit, nextToken: $nextToken) {
-    items {
-      id
-      users
-      content
-      archived
-      conversation {
-        id
-        users
-        archived
-      }
-    }
-    nextToken
-  }
-}
-`;
 export const getChannel = `query GetChannel($id: ID!) {
   getChannel(id: $id) {
     id
     description
     users
     archived
-    ChannelMessages {
+    messages {
       items {
         id
-        users
         content
         archived
       }
@@ -146,7 +106,7 @@ export const listChannels = `query ListChannels(
       description
       users
       archived
-      ChannelMessages {
+      messages {
         nextToken
       }
     }
@@ -154,40 +114,40 @@ export const listChannels = `query ListChannels(
   }
 }
 `;
-export const getChannelMessage = `query GetChannelMessage($id: ID!) {
-  getChannelMessage(id: $id) {
+export const getMarketplace = `query GetMarketplace($id: ID!) {
+  getMarketplace(id: $id) {
     id
+    name
+    description
     users
-    content
     archived
-    channel {
-      id
-      description
-      users
-      archived
-      ChannelMessages {
-        nextToken
+    posts {
+      items {
+        id
+        title
+        subtitle
+        description
+        archived
       }
+      nextToken
     }
   }
 }
 `;
-export const listChannelMessages = `query ListChannelMessages(
-  $filter: ModelChannelMessageFilterInput
+export const listMarketplaces = `query ListMarketplaces(
+  $filter: ModelMarketplaceFilterInput
   $limit: Int
   $nextToken: String
 ) {
-  listChannelMessages(filter: $filter, limit: $limit, nextToken: $nextToken) {
+  listMarketplaces(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
+      name
+      description
       users
-      content
       archived
-      channel {
-        id
-        description
-        users
-        archived
+      posts {
+        nextToken
       }
     }
     nextToken

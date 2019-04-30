@@ -143,12 +143,12 @@
 				}
 			}
 		},
-		"apilivvyAPI": {
+		"apiliv": {
 			"Type": "AWS::CloudFormation::Stack",
 			"Properties": {
 				"TemplateURL": "https://s3.amazonaws.com/liv-20190427160526-deployment/amplify-cfn-templates/api/cloudformation-template.json",
 				"Parameters": {
-					"AppSyncApiName": "livvyAPI",
+					"AppSyncApiName": "liv",
 					"DynamoDBBillingMode": "PAY_PER_REQUEST",
 					"AuthCognitoUserPoolId": {
 						"Fn::GetAtt": [
@@ -157,7 +157,7 @@
 						]
 					},
 					"S3DeploymentBucket": "liv-20190427160526-deployment",
-					"S3DeploymentRootKey": "amplify-appsync-files/38d7d7a71a405c004b892f0da48870ae8185f1d6",
+					"S3DeploymentRootKey": "amplify-appsync-files/3533b6c329d3e9eb3c2e705a89e42ed6579da935",
 					"env": "dev"
 				}
 			}

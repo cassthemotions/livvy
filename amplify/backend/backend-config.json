@@ -6,7 +6,7 @@
 		}
 	},
 	"api": {
-		"livvyAPI": {
+		"liv": {
 			"service": "AppSync",
 			"providerPlugin": "awscloudformation",
 			"output": {
