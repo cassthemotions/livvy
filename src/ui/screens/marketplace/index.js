@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./styles";
 import { subscribe } from "react-contextual";
-import ContentSideBar from "../../ui/layouts/ContentSidebar"
+import ContentSideBar from "../../layouts/ContentSidebar"
 import Subnav from "./components/Subnav";
 import Post from "./components/Post";
 

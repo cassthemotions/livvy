@@ -6,11 +6,11 @@ import { Provider } from 'react-contextual';
 
 import Template from './ui/templates/livvy/';
 
-import Messenger from './screens/messenger';
-import Marketplace from './screens/marketplace';
-import Events from './screens/events';
-import Maintenance from './screens/maintenance';
-import Security from './screens/security';
+import Messenger from './ui/screens/messenger';
+import Marketplace from './ui/screens/marketplace';
+import Events from './ui/screens/events';
+import Maintenance from './ui/screens/maintenance';
+import Security from './ui/screens/security';
 import TestApp from './testApp';
 
 import store from './_shared/store';
